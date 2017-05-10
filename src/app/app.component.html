@@ -1,3 +1,11 @@
-<h1>
-  {{title}}
-</h1>
+<div [ngStyle]="{background: getBackgroundColor(data?.current?.is_day)}">
+
+<input type="text" placeholder="Enter a location." #location>
+<button (click)="getLocation(location.value)">Go</button>
+
+<h1> Location: {{ data?.location?.name }} <img src="{{weatherThumb}}"/></h1>
+<br/>
+
+<h1> Temperature: {{roundNum(data?.current?.temp_f)}}&deg;</h1>
+<h1> Wind: {{data?.current?.wind_dir}} {{roundNum(data?.current?.wind_mph)}} mph</h1>
+</div>
